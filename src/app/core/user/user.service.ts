@@ -54,7 +54,7 @@ export class UserService {
     }
 
     isLoggedAndAdmin() {
-        return this.tokenService.hasToken() || this.admin;
+        return this.tokenService.hasToken() && this.admin;
     }
 
     isAdmin() {
