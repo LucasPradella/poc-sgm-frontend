@@ -35,10 +35,7 @@ export class SignInComponent implements OnInit {
             .authenticate(userName, password)
             .subscribe(
                 () => {
-
-                    // buscar ROLES usuario 
-
-                    this.router.navigate(['geo', 'admin'])
+                    this.router.navigate(['geo', 'cidadao'])
                 },
                 err => {
                     console.log(err);
