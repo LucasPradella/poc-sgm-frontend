@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  uriGeo: 'http://localhost:8090',
+  uriIam: 'http://localhost:8080/v1',
 };
 
 /*

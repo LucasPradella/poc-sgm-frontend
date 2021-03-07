@@ -9,8 +9,12 @@
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
               <li class="nav-item px-2 btn"><a class="nav-link fw-medium active" aria-current="page" (click)="home()">Home</a></li>
-              <li class="nav-item px-2 btn"><a class="nav-link fw-medium"  (click)="open()">Cidadão</a></li>
-              <li class="nav-item px-2 btn"><a class="nav-link fw-medium" (click)="admin()">Servidor</a></li>
+              <li class="nav-item px-2 btn" *ngIf="(user$ | async) as user">
+                  <a class="nav-link fw-medium" (click)="open()">Cidadão</a>
+              </li>
+              <li class="nav-item px-2 btn" *ngIf="(isAdmin$ | async) as isAdmin">
+                <a class="nav-link fw-medium" (click)="admin()">Servidor</a>
+              </li>
             </ul>
             <form class="ps-lg-5 ">
                 <div *ngIf="(user$ | async) as user; else login">
@@ -26,22 +30,3 @@
         </div>
       </nav>
 </header>
-
-<!-- <header class="fixed-top"> -->
-    <!-- <nav class="navbar navbar-light bg-white">
-        <a class="navbar-brand">Cidade de Bom Destino</a>
-
-        <div *ngIf="(user$ | async) as user; else login">
-            <i class="fa fa-user-circle mr-1"></i>
-            <a class="mr-1">{{user.sub}}</a>
-            <a (click)="logout()">(Logout)</a>
-        </div>
-
-        <ng-template #login>
-            <span class="navbar-text">
-                <a [routerLink]="['']">Faça o Login</a>
-            </span>
-        </ng-template> 
-
-    </nav> -->
-

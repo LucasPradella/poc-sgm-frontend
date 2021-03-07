@@ -5,6 +5,7 @@ import { PhotoListComponent } from './photos/photo-list/photo-list.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
+import { NotAccessComponent } from './errors/not-access/not-access.component';
 
 const routes: Routes = [
     {
@@ -26,22 +27,15 @@ const routes: Routes = [
         path: 'geo',
         loadChildren: './geo/geo.module#GeoModule'
     },      
-
     { 
-        path: 'user/:userName', 
-        component: PhotoListComponent,
-        resolve: {
-            photos: PhotoListResolver
-        }
-    },
-    { 
-        path: 'p/add', 
-        component: PhotoFormComponent 
+        path: '403', 
+        component: NotAccessComponent 
     },
     { 
         path: '**', 
         component: NotFoundComponent 
-    }  
+    }
+      
 ];
 
 @NgModule({

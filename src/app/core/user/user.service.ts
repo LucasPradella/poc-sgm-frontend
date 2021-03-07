@@ -8,7 +8,10 @@ import * as jtw_decode from 'jwt-decode';
 export class UserService { 
 
     private userSubject = new BehaviorSubject<User>(null);
+    private adminSubject = new BehaviorSubject<boolean>(null);
     private userName: string;
+    private authorities: Array<string> = [];
+    private admin: boolean = false;
 
     constructor(private tokenService: TokenService) { 
 
@@ -30,11 +33,16 @@ export class UserService {
         const user = jtw_decode(token) as User;
         this.userName = user.name;
         this.userSubject.next(user);
+        
+        this.authorities = user.authorities;
+        this.admin = this.authorities.includes("ROLE_ADMIN");
+        this.adminSubject.next(this.admin)
     }
 
     logout() {
         this.tokenService.removeToken();
         this.userSubject.next(null);
+        this.adminSubject.next(null);
     }
 
     isLogged() {
@@ -43,5 +51,13 @@ export class UserService {
 
     getUserName() {
         return this.userName;
+    }
+
+    isLoggedAndAdmin() {
+        return this.tokenService.hasToken() || this.admin;
+    }
+
+    isAdmin() {
+        return this.adminSubject.asObservable();
     }
 }

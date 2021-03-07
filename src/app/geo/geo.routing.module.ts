@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthAdminGuard } from '../core/auth/auth.admin.guard';
 
 import { AuthGuard } from '../core/auth/auth.guard';
 import { AdminComponent } from './admin/admin.component';
@@ -10,11 +11,12 @@ const routes: Routes = [
     { 
         path: '',
         component: GeoComponent,
-//        canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         children: [
             { 
                 path: 'admin',
                 component: AdminComponent,
+                canActivate: [AuthAdminGuard],
             }, 
             { 
                 path: 'cidadao',

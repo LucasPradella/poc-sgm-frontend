@@ -3,22 +3,24 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { UserService } from '../user/user.service';
 import { AuthToken } from './authToken';
+import { environment } from 'src/environments/environment';
 
-
-
-const API_URL = 'http://localhost:8080/v1';
-
+let API_URL = '';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
 
   authToken: AuthToken;
 
 
   constructor(
     private http: HttpClient,
-    private userService: UserService) { }
+    private userService: UserService) { 
+      API_URL = environment.uriIam;
+
+    }
 
   authenticate(userName: string, password: string) {
 

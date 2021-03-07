@@ -11,12 +11,15 @@ import { Router } from '@angular/router';
 export class HeaderComponent { 
 
     user$: Observable<User>;
+    isAdmin$: Observable<boolean>;
 
     constructor(
         private userService: UserService, 
         private router:Router) {
 
         this.user$ = userService.getUser();
+        this.isAdmin$ = userService.isAdmin();
+
     }
 
     logout() {
@@ -35,4 +38,6 @@ export class HeaderComponent {
     home() {
         this.router.navigate(['']);
     }
+
+    
 }
