@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { AuthGuard } from '../core/auth/auth.guard';
 import { SignInComponent } from './signin/signin.component';
-import { SignUpComponent } from './singup/singup.component';
+import { ContentComponent } from './content/content.component';
+
 
 const routes: Routes = [
     { 
@@ -14,11 +15,11 @@ const routes: Routes = [
         children: [
             { 
                 path: '',
-                component: SignInComponent,
+                component: ContentComponent,
             }, 
             { 
-                path: 'signup',
-                component: SignUpComponent,
+                path: 'login',
+                component: SignInComponent,
             },            
         ]
     },              
