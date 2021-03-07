@@ -16,12 +16,12 @@ export class GeoService {
 
     findInfo() {
         return this.http
-            .get<Info>(API_GEO + '/v1/city-data/35028/info');       
+            .get<Info>(API_GEO + '/city-data/35028/info');       
     }
 
     findMetadata() {
         return this.http
-            .get<Metadata>(API_GEO + '/v1/city-data/35028/metadata');       
+            .get<Metadata>(API_GEO + '/city-data/35028/metadata');       
     }
 
 }

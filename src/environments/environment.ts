@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  uriGeo: 'http://localhost:8090',
+  uriGeo: 'http://localhost:8090/v1',
   uriIam: 'http://localhost:8080/v1',
 };
 
