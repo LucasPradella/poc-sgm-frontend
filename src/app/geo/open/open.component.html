@@ -1,2 +1,32 @@
-{{ info.title }}
+
+<section class="py-0" id="home">
+    <div class="bg-holder d-none d-sm-block"
+     style="background-image:url(assets/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;">
+    </div>
+    <div class="bg-holder d-sm-none" 
+    style="background-image:url(assets/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;">
+    </div>
+        <div class="container">
+            <div class="row align-items-center min-vh-75 min-vh-md-100">
+                <div class="col-md-7 col-lg-6 py-6 text-sm-start text-center open-mt">
+                    <h1 class="display-2 fw-semi-bold lh-sm">Últimas notícias!</h1>
+                    <p class="mb-8 fs-1">Informações IBGE</p>
+                    
+                    <div class="col-md-12 text-md-start">
+                        <h6 class="fw-bold fs-3 display-3 lh-sm">{{info?.title}}</h6>
+                        <p class="my-2 pe-xl-8">{{info?.introduction}}</p>
+
+                        <h6 class="fw-bold fs-3 display-3 lh-sm">Assunto</h6>
+                        <p class="my-2 pe-xl-8">{{info?.subject}}</p>
+
+                        <h6 class="fw-bold fs-3 display-3 lh-sm">Editoriais</h6>
+                        <p class="my-2 pe-xl-8">{{info?.editorials}}</p>
+            
+                        <a [href]="info?.link" lass="py-8 pe-xl-8 ">Link completo da materia</a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+</section>
+       
 

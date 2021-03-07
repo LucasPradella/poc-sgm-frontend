@@ -23,4 +23,16 @@ export class HeaderComponent {
         this.userService.logout();
         this.router.navigate(['']);
     }
+
+    admin() {
+        this.router.navigate(['geo', 'admin']);
+    }
+
+    open() {
+        this.router.navigate(['geo', 'cidadao']);
+    }
+
+    home() {
+        this.router.navigate(['']);
+    }
 }
